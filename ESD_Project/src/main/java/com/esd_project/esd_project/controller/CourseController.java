@@ -1,7 +1,6 @@
 package com.esd_project.esd_project.controller;
 
 import com.esd_project.esd_project.bean.Course;
-import com.esd_project.esd_project.bean.Department;
 import com.esd_project.esd_project.dao.CourseDAO;
 import com.esd_project.esd_project.dao.impl.CourseDAOImpl;
 import jakarta.ws.rs.*;
@@ -18,7 +17,7 @@ public class CourseController {
     @GET
     @Path("get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get_Department(Course course){
+    public Response get_Course(Course course){
         System.out.printf(String.valueOf(course));
         List<Course> myList= courseDAO.getCourse();
         if(!myList.isEmpty()){
@@ -33,7 +32,7 @@ public class CourseController {
     @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public Response add_Department(Course course){
+    public Response add_Course(Course course){
         System.out.printf(String.valueOf(course));
         if(courseDAO.createCourse(course)){
             return Response.status(200).entity("Success").build();

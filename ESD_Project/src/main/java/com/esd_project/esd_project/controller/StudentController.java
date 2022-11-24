@@ -1,18 +1,32 @@
 package com.esd_project.esd_project.controller;
 
+import com.esd_project.esd_project.bean.Employee;
 import com.esd_project.esd_project.bean.Student;
 import com.esd_project.esd_project.dao.StudentDAO;
 import com.esd_project.esd_project.dao.impl.StudentDAOImpl;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.util.List;
 
 @Path("student")
 public class StudentController {
     StudentDAO studentDAO = new StudentDAOImpl();
+
+    @GET
+    @Path("get")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get_Student(Student student){
+        System.out.printf(String.valueOf(student));
+        List<Student> myList= studentDAO.getStudent();
+        if(!myList.isEmpty()){
+            return Response.status(200).entity(myList).build();
+        }
+
+        return Response.status(400).entity("Failure while getting student").build();
+    }
+
     @POST
     @Path("/add")
     @Consumes(MediaType.APPLICATION_JSON)

@@ -25,9 +25,8 @@ public class Employee {
     @Column
     private String photograph_path;
 
-    @ManyToOne
-    @JoinColumn(name="department_id")
-    private Department dep;
+    @Column(nullable = false)
+    private String password;
 
     public Integer getEmployee_id() {
         return employee_id;
@@ -77,11 +76,11 @@ public class Employee {
         this.photograph_path = photograph_path;
     }
 
-    public Department getDep() {
-        return dep;
+    public String getPassword() {
+        return password;
     }
 
-    public void setDep(Department dep) {
-        this.dep = dep;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
