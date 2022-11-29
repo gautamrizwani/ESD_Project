@@ -2,6 +2,10 @@ package com.esd_project.esd_project.bean;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
 @Table
 public class Course {

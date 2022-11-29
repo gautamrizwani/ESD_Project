@@ -1,6 +1,7 @@
 package com.esd_project.esd_project.dao.impl;
 
 import com.esd_project.esd_project.bean.Course;
+import com.esd_project.esd_project.bean.Employee;
 import com.esd_project.esd_project.dao.CourseDAO;
 import com.esd_project.esd_project.util.HibernateSessionUtil;
 import org.hibernate.HibernateException;
@@ -34,6 +35,25 @@ public class CourseDAOImpl implements CourseDAO {
                     final Object dill : session
                     .createQuery("FROM Course").list()
                 )
+                myList.add((Course) dill);
+
+        }
+        catch (HibernateException exception) {
+            System.out.println(exception.getLocalizedMessage());
+        }
+
+        return myList;
+    }
+
+    @Override
+    public List<Course> getFacCourse(Employee employee) {
+        List<Course> myList = new ArrayList<>();
+
+        try (Session session = HibernateSessionUtil.getSession()){
+            for (
+                    final Object dill : session
+                    .createQuery("FROM Course WHERE employee = :employeeId").setParameter("employeeId", employee).list()
+            )
                 myList.add((Course) dill);
 
         }

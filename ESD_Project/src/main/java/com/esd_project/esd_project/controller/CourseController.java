@@ -1,6 +1,7 @@
 package com.esd_project.esd_project.controller;
 
 import com.esd_project.esd_project.bean.Course;
+import com.esd_project.esd_project.bean.Employee;
 import com.esd_project.esd_project.dao.CourseDAO;
 import com.esd_project.esd_project.dao.impl.CourseDAOImpl;
 import jakarta.ws.rs.*;
@@ -27,6 +28,18 @@ public class CourseController {
         return Response.status(400).entity("Failure while getting student").build();
     }
 
+    @POST
+    @Path("getfac")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getFacCourse(Employee employee){
+        List<Course> myList= courseDAO.getFacCourse(employee);
+        if(!myList.isEmpty()){
+            return Response.status(200).entity(myList).build();
+        }
+
+        return Response.status(400).entity("Failure while getting Courses").build();
+    }
 
     @POST
     @Path("/add")

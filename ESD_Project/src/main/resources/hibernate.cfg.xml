@@ -17,5 +17,6 @@
         <mapping class="com.esd_project.esd_project.bean.Employee"/>
         <mapping class="com.esd_project.esd_project.bean.Course"/>
         <mapping class="com.esd_project.esd_project.bean.CourseTA"/>
+        <mapping class="com.esd_project.esd_project.bean.Stu_Course"/>
     </session-factory>
 </hibernate-configuration>

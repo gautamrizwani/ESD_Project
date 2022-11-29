@@ -3,18 +3,19 @@ package com.esd_project.esd_project.bean;
 import jakarta.persistence.*;
 
 import java.sql.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
 public class Student {
 
-    public Integer getStudent_Id() {
-        return student_Id;
+    public Integer getStudent_id() {
+        return student_id;
     }
 
-    public void setStudent_Id(Integer student_Id) {
-        this.student_Id = student_Id;
+    public void setStudent_id(Integer student_id) {
+        this.student_id = student_id;
     }
 
     public String getRoll_number() {
@@ -83,7 +84,7 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer student_Id;
+    private Integer student_id;
 
     @Column(nullable = false, unique = true)
     private String roll_number;

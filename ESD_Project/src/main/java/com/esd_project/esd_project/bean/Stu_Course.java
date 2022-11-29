@@ -4,25 +4,26 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(uniqueConstraints = { @UniqueConstraint(columnNames = { "course_id", "student_id"})})
-public class CourseTA {
+public class Stu_Course {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer courseTA_id;
+    private Integer stu_course_id;
 
-    @OneToOne//(cascade = {CascadeType.ALL})
+    @OneToOne
     @JoinColumn(name="course_id")
     private Course course;
 
-    @OneToOne//(cascade = {CascadeType.ALL})
+    @OneToOne
     @JoinColumn(name="student_id")
     private Student student;
 
-    public Integer getCourseTA_id() {
-        return courseTA_id;
+    public Integer getStu_course_id() {
+        return stu_course_id;
     }
 
-    public void setCourseTA_id(Integer courseTA_id) {
-        this.courseTA_id = courseTA_id;
+    public void setStu_course_id(Integer stu_course_id) {
+        this.stu_course_id = stu_course_id;
     }
 
     public Course getCourse() {

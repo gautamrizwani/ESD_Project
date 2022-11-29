@@ -2,13 +2,12 @@ package com.esd_project.esd_project.dao;
 
 import com.esd_project.esd_project.bean.Course;
 import com.esd_project.esd_project.bean.Employee;
+import com.esd_project.esd_project.bean.Stu_Course;
 
 import java.util.List;
 
-public interface CourseDAO {
+public interface Stu_CourseDAO {
 
-    boolean createCourse(Course course);
-    List<Course> getCourse();
+    List<Stu_Course> getStuCourse(Course course);
 
-    List<Course> getFacCourse(Employee employee);
 }
